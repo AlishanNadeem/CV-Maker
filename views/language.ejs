@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/nav %>
+
+    <div class="container">
+      <form style="padding: 200px;" action="/addUserLanguage/<%=id%>" method="POST">
+        <% include partials/updateHeading %>
+        <div class="form-group">
+          <label for="languages">Language</label>
+          <input type="text" class="form-control" id="languages" name="languages">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+</body>
+<% include partials/script %>
+
+</html>

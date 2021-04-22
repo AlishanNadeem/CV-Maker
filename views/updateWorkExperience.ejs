@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include partials/head%>
+</head>
+
+<body>
+  <% include partials/nav %>
+
+    <div class="container">
+      <form style="padding: 200px;" action="/<%=id%>/updateUserWork/<%=workExperience._id%>" method="POST">
+        <% include partials/updateHeading %>
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input type="text" class="form-control" id="companyName" name="companyName" value="<%=workExperience.companyName%>">
+        </div>
+        <div class="form-group">
+          <label for="designation">Designation</label>
+          <input type="text" class="form-control" id="designation" name="designation" value="<%=workExperience.designation%>">
+        </div>
+        <div class="form-group">
+          <label for="startDate">Start date</label>
+          <input type="date" class="form-control" id="startDate" name="startDate" value="<%=workExperience.startDate%>">
+        </div>
+        <div class="form-group">
+          <label for="endDate">End date</label>
+          <input type="date" class="form-control" id="endDate" name="endDate" value="<%=workExperience.endDate%>" >
+        </div>
+        <div class="form-group">
+          <label for="responsibilities">Responsibilities</label>
+          <input type="text" class="form-control" id="responsibilities" name="responsibilities" value="<%=workExperience.responsibilities%>" >
+        </div>
+        <button type="submit" class="btn btn-primary gradient">Submit</button>
+      </form>
+    </div>
+
+</body>
+<% include partials/script%>
+
+</html>

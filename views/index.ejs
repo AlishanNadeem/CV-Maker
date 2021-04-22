@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/nav %>
+    <main class="page cv-page">
+      <section class="cv-block block-intro border-bottom">
+        <div class="container">
+          <div class="avatar">
+            <img class="img-fluid rounded-circle" src="images/avatar.jpg">
+          </div>
+          <p>Hello! I am <strong>
+              <%=user[0].name%>.
+            </strong></p>
+        </div>
+      </section>
+      <section class="cv-block info">
+        <div class="container">
+          <div class="education group" id="education">
+            <div class="row">
+              <div class="col-sm-4">
+              </div>
+              <div class="col-sm-4">
+                <h2 class="text-center">Education</h2>
+              </div>
+              <div class="col-sm-4">
+                <div class="row">
+                  <div class="col-sm-4">
+
+                  </div>
+                  <div class="col-sm-4">
+
+                  </div>
+                  <div class="col-sm-2" style="margin-top: 10px;">
+                    <form action="/addEducationView/<%=user[0]._id%>" method="GET">
+                      <input class="btn btn-outline-primary" type="submit" value="+ Add New">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table">
+                  <thead class="gradient">
+                    <tr>
+                      <th>Institute Name</th>
+                      <th>Program</th>
+                      <th>Start date</th>
+                      <th>End date</th>
+                      <th>Field</th>
+                      <th class="actions">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0; i<user[0].education.length; i++) {%>
+                      <tr>
+                        <td>
+                          <%=user[0].education[i].instituteName%>
+                        </td>
+                        <td>
+                          <%=user[0].education[i].program%>
+                        </td>
+                        <td>
+                          <%=user[0].education[i].startDate%>
+                        </td>
+                        <td>
+                          <%=user[0].education[i].endDate%>
+                        </td>
+                        <td>
+                          <%=user[0].education[i].field%>
+                        </td>
+                        <td style="text-align: center; width: 20%;">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/updateEducationView/<%=user[0].education[i]._id%>" method="GET">
+                                <input class="btn btn-primary gradient" type="submit" value="Update">
+                              </form>
+                            </div>
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/deleteUserEducation/<%=user[0].education[i]._id%>"
+                                method="POST">
+                                <input class="btn btn-primary gradient" type="submit" value="Delete">
+                              </form>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="work-experience group" id="work-experience">
+            <div class="row">
+              <div class="col-sm-4">
+              </div>
+              <div class="col-sm-4">
+                <h2 class="text-center">Work Experience</h2>
+              </div>
+              <div class="col-sm-4">
+                <div class="row">
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-2" style="margin-top: 10px;">
+                    <form action="/addWorkView/<%=user[0]._id%>" method="GET">
+                      <input class="btn btn-outline-primary" type="submit" value="+ Add New">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table">
+                  <thead class="gradient">
+                    <tr>
+                      <th>Company Name</th>
+                      <th>Designation</th>
+                      <th>Start date</th>
+                      <th>End date</th>
+                      <th>Responsibilities</th>
+                      <th class="actions">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0; i<user[0].workExperience.length; i++){ %>
+                      <tr>
+                        <td>
+                          <%=user[0].workExperience[i].companyName%>
+                        </td>
+                        <td>
+                          <%=user[0].workExperience[i].designation%>
+                        </td>
+                        <td>
+                          <%=user[0].workExperience[i].startDate%>
+                        </td>
+                        <td>
+                          <%=user[0].workExperience[i].endDate%>
+                        </td>
+                        <td>
+                          <%=user[0].workExperience[i].responsibilities%>
+                        </td>
+                        <td style="text-align: center; width: 20%;">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/updateWorkView/<%=user[0].workExperience[i]._id%>" method="GET">
+                                <input class="btn btn-primary gradient" type="submit" value="Update">
+                              </form>
+                            </div>
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/deleteUserWork/<%=user[0].workExperience[i]._id%>"
+                                method="POST">
+                                <input class="btn btn-primary gradient" type="submit" value="Delete">
+                              </form>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="extra curricular activities group" id="extra-curricular-activities">
+            <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-8">
+                <h2 class="text-center">Extra Curricular Activities</h2>
+              </div>
+              <div class="col-sm-2">
+                <div class="row">
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-4">
+                    <form action="/addActivityView/<%=user[0]._id%>" method="GET">
+                      <input class="btn btn-outline-primary" type="submit" value="+ Add New">
+                    </form>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: 10px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table">
+                  <thead class="gradient">
+                    <tr>
+                      <th>Extra Curricular Activities</th>
+                      <th class="actions">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0; i<user[0].extraActivities.length; i++){ %>
+                      <tr>
+                        <td>
+                          <%=user[0].extraActivities[i].extraActivities%>
+                        </td>
+                        <td style="text-align: center; width: 20%;">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/updateActivityView/<%=user[0].extraActivities[i]._id%>" method="GET">
+                                <input class="btn btn-primary gradient" type="submit" value="Update">
+                              </form>
+                            </div>
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/deleteUserActivity/<%=user[0].extraActivities[i]._id%>"
+                                method="POST">
+                                <input class="btn btn-primary gradient" type="submit" value="Delete">
+                              </form>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="research experience group" id="research-experience">
+            <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-8">
+                <h2 class="text-center">Research Experience</h2>
+              </div>
+              <div class="col-sm-2">
+                <div class="row">
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-4">
+                    <form action="/addResearchView/<%=user[0]._id%>" method="GET">
+                      <input class="btn btn-outline-primary" type="submit" value="+ Add New">
+                    </form>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: 10px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table">
+                  <thead class="gradient">
+                    <tr>
+                      <th>Name of Project</th>
+                      <th>Start date</th>
+                      <th>End date</th>
+                      <th>Field of Research</th>
+                      <th class="actions">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0; i<user[0].researchExperience.length; i++){ %>
+                      <tr>
+                        <td>
+                          <%=user[0].researchExperience[i].projectName%>
+                        </td>
+                        <td>
+                          <%=user[0].researchExperience[i].startDate%>
+                        </td>
+                        <td>
+                          <%=user[0].researchExperience[i].endDate%>
+                        </td>
+                        <td>
+                          <%=user[0].researchExperience[i].researchField%>
+                        </td>
+                        <td style="text-align: center; width: 20%;">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/updateResearchView/<%=user[0].researchExperience[i]._id%>" method="GET">
+                                <input class="btn btn-primary gradient" type="submit" value="Update">
+                              </form>
+                            </div>
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/deleteUserResearch/<%=user[0].researchExperience[i]._id%>"
+                                method="POST">
+                                <input class="btn btn-primary gradient" type="submit" value="Delete">
+                              </form>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="languages group" id="languages">
+            <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-8">
+                <h2 class="text-center">Languages</h2>
+              </div>
+              <div class="col-sm-2">
+                <div class="row">
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-4">
+                    <form action="/addLanguageView/<%=user[0]._id%>" method="GET">
+                      <input class="btn btn-outline-primary" type="submit" value="+ Add New">
+                    </form>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: 10px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table">
+                  <thead class="gradient">
+                    <tr>
+                      <th>Languages</th>
+                      <th class="actions">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0; i<user[0].languages.length; i++){ %>
+                      <tr>
+                        <td>
+                          <%=user[0].languages[i].languages%>
+                        </td>
+                        <td style="text-align: center; width: 20%;">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/updateLanguageView/<%=user[0].languages[i]._id%>" method="GET">
+                                <input class="btn btn-primary gradient" type="submit" value="Update">
+                              </form>
+                            </div>
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/deleteUserLanguage/<%=user[0].languages[i]._id%>"
+                                method="POST">
+                                <input class="btn btn-primary gradient" type="submit" value="Delete">
+                              </form>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="references group" id="references">
+            <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-8">
+                <h2 class="text-center">References</h2>
+              </div>
+              <div class="col-sm-2">
+                <div class="row">
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-4">
+                    <form action="/addReferenceView/<%=user[0]._id%>" method="GET">
+                      <input class="btn btn-outline-primary" type="submit" value="+ Add New">
+                    </form>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: 10px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table">
+                  <thead class="gradient">
+                    <tr>
+                      <th>Name</th>
+                      <th>Designation</th>
+                      <th>Company</th>
+                      <th>Contact Number</th>
+                      <th>Contact Email</th>
+                      <th class="actions">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0; i<user[0].references.length; i++){ %>
+                      <tr>
+                        <td>
+                          <%=user[0].references[i].name%>
+                        </td>
+                        <td>
+                          <%=user[0].references[i].designation%>
+                        </td>
+                        <td>
+                          <%=user[0].references[i].company%>
+                        </td>
+                        <td>
+                          <%=user[0].references[i].contactNumber%>
+                        </td>
+                        <td>
+                          <%=user[0].references[i].contactEmail%>
+                        </td>
+                        <td style="text-align: center; width: 20%;">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/updateReferenceView/<%=user[0].references[i]._id%>" method="GET">
+                                <input class="btn btn-primary gradient" type="submit" value="Update">
+                              </form>
+                            </div>
+                            <div class="col-sm-6">
+                              <form action="/<%=user[0]._id%>/deleteUserReference/<%=user[0].references[i]._id%>"
+                                method="POST">
+                                <input class="btn btn-primary gradient" type="submit" value="Delete">
+                              </form>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="group" id="contact-info">
+            <div class="row">
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <div class="contact-info info-card">
+                  <h2>Contact Info</h2>
+                  <div class="row">
+                    <div class="col-1">
+                      <i class="ion-person icon"></i>
+                    </div>
+                    <div class="col-9">
+                      <span>
+                        <%=user[0].name%>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-1">
+                      <i class="ion-android-home icon"></i>
+                    </div>
+                    <div class="col-9">
+                      <span>
+                        <%=user[0].address%>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-1">
+                      <i class="ion-ios-telephone icon"></i>
+                    </div>
+                    <div class="col-9">
+                      <span>
+                        <%=user[0].contactNo%>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-1">
+                      <i class="ion-at icon"></i>
+                    </div>
+                    <div class="col-9">
+                      <span>
+                        <%=user[0].email%>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="page-footer">
+        <div class="container">
+          <div class="social-icons">
+            <a href="#"><i class="ion-social-facebook" title="Facebook"></i></a>
+            <a href="#"><i class="ion-social-instagram-outline" title="Instagram"></i></a>
+            <a href="#"><i class="ion-social-twitter" title="Twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </main>
+</body>
+
+<% include partials/script %>
+
+</html>

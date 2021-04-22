@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include partials/head%>
+</head>
+
+<body>
+  <% include partials/nav %>
+
+    <div class="container">
+      <form style="padding: 200px;" action="/<%=id%>/updateUserActivity/<%=extraActivities._id%>" method="POST">
+        <% include partials/updateHeading %>
+        <div class="form-group">
+          <label for="extraActivities">Extra Curricular Activities</label>
+          <input type="text" class="form-control" id="extraActivities" name="extraActivities" value="<%=extraActivities.extraActivities%>">
+        </div>
+        <button type="submit" class="btn btn-primary gradient">Submit</button>
+      </form>
+    </div>
+
+</body>
+<% include partials/script%>
+
+</html>

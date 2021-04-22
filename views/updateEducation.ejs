@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body>
+    <% include partials/nav %>
+
+        <div class="container">
+            <form style="padding: 200px;" action="/<%=id%>/updateUserEducation/<%=education._id%>" method="POST">
+                <% include partials/updateHeading %>
+                <div class="form-group">
+                    <label for="instituteName">Institute Name</label>
+                    <input type="text" class="form-control" id="instituteName" name="instituteName"
+                        value="<%=education.instituteName%>">
+                </div>
+                <div class="form-group">
+                    <label for="program">Program</label>
+                    <input type="text" class="form-control" id="program" name="program" value="<%=education.program%>">
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate"
+                        value="<%=education.startDate%>">
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End date</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate" value="<%=education.endDate%>">
+                </div>
+                <div class="form-group">
+                    <label for="field">Field</label>
+                    <input type="text" class="form-control" id="field" name="field" value="<%=education.field%>">
+                </div>
+                <button type="submit" class="btn btn-primary gradient">Submit</button>
+            </form>
+        </div>
+
+</body>
+<% include partials/script %>
+
+</html>

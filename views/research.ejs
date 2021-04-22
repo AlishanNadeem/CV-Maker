@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/nav %>
+
+    <div class="container">
+      <form style="padding: 200px;" action="/addUserResearch/<%=id%>" method="POST">
+        <% include partials/updateHeading %>
+        <div class="form-group">
+          <label for="projectName">Name of Project</label>
+          <input type="text" class="form-control" id="projectName" name="projectName">
+        </div>
+        <div class="form-group">
+          <label for="startDate">Start date</label>
+          <input type="date" class="form-control" id="startDate" name="startDate">
+        </div>
+        <div class="form-group">
+          <label for="endDate">End date</label>
+          <input type="date" class="form-control" id="endDate" name="endDate">
+        </div>
+        <div class="form-group">
+          <label for="researchField">Field of Research</label>
+          <input type="text" class="form-control" id="researchField" name="researchField">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+</body>
+<% include partials/script %>
+
+</html>

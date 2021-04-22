@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body class="gradient">
+    <div class="signup-form">
+        <form action="/addUser" method="POST" style="margin-top: 200px">
+            <h2>Your Information</h2>
+            <hr><br>
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Your Name" required="required">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" name="contactNo" placeholder="Your Contact Number"
+                    required="required">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="address" placeholder="Your address" required="required">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block rounded-pill gradient">Get
+                    Started</button>
+            </div>
+        </form>
+    </div>
+</body>
+<% include partials/script %>
+
+</html>
