@@ -10,7 +10,6 @@ const reference_controller = require('../controllers/Reference.controller');
 const user_controller = require('../controllers/User.controller');
 
 //Main view routes
-// router.get('/index',user_controller.getHomeView);
 router.get('/index', user_controller.getRecentUser);
 
 //User
